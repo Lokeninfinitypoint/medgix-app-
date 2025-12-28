@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns | Marketing Tool Pro App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0e27; color: #fff; }
+        .app-layout { display: grid; grid-template-columns: 250px 1fr; height: 100vh; }
+        .sidebar { background: #151932; border-right: 1px solid rgba(255,255,255,0.1); padding: 2rem 1rem; }
+        .logo { font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3rem; }
+        .nav-item { padding: 0.75rem 1rem; color: #a0aec0; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; border-radius: 8px; margin-bottom: 0.5rem; transition: all 0.3s; }
+        .nav-item:hover, .nav-item.active { background: rgba(102, 126, 234, 0.1); color: #667eea; }
+        .main-content { padding: 2rem; overflow-y: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; }
+        .campaigns-grid { display: grid; gap: 1.5rem; }
+        .campaign-card { background: #151932; padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 2rem; align-items: center; }
+        .campaign-name { font-weight: 600; font-size: 1.125rem; }
+        .campaign-meta { color: #a0aec0; font-size: 0.875rem; margin-top: 0.25rem; }
+        .metric { text-align: center; }
+        .metric-value { font-size: 1.5rem; font-weight: 700; }
+        .metric-label { color: #a0aec0; font-size: 0.875rem; margin-top: 0.25rem; }
+        .status { padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; }
+        .status.active { background: rgba(76, 175, 80, 0.1); color: #4caf50; }
+        .status.paused { background: rgba(255, 152, 0, 0.1); color: #ff9800; }
+    </style>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="logo">MarketingTool.Pro</div>
+            <nav>
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="campaigns.html" class="nav-item active">🎯 Campaigns</a>
+                <a href="audiences.html" class="nav-item">👥 Audiences</a>
+                <a href="#" class="nav-item">🎨 Creative Studio</a>
+                <a href="analytics.html" class="nav-item">📈 Analytics</a>
+                <a href="#" class="nav-item">🤖 AI Chat</a>
+                <a href="#" class="nav-item">🔄 Automation</a>
+                <a href="#" class="nav-item">⚙️ Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <div>
+                    <h1>Campaigns</h1>
+                    <p style="color: #a0aec0; margin-top: 0.5rem;">Manage and optimize all your ad campaigns</p>
+                </div>
+                <a href="#" class="btn-primary">+ Create Campaign</a>
+            </div>
+
+            <div class="campaigns-grid">
+                <div class="campaign-card">
+                    <div>
+                        <div class="campaign-name">Summer Sale USA 2025</div>
+                        <div class="campaign-meta">Facebook • Created Dec 20, 2025</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">$12,450</div>
+                        <div class="metric-label">Spend</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3.2x</div>
+                        <div class="metric-label">ROAS</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">1,245</div>
+                        <div class="metric-label">Conversions</div>
+                    </div>
+                    <span class="status active">Active</span>
+                </div>
+
+                <div class="campaign-card">
+                    <div>
+                        <div class="campaign-name">Holiday Campaign Canada</div>
+                        <div class="campaign-meta">Google Ads • Created Dec 18, 2025</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">CA$8,200</div>
+                        <div class="metric-label">Spend</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2.8x</div>
+                        <div class="metric-label">ROAS</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">892</div>
+                        <div class="metric-label">Conversions</div>
+                    </div>
+                    <span class="status active">Active</span>
+                </div>
+
+                <div class="campaign-card">
+                    <div>
+                        <div class="campaign-name">Diwali Special India</div>
+                        <div class="campaign-meta">Facebook • Created Nov 1, 2025</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">₹3,85,000</div>
+                        <div class="metric-label">Spend</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">4.1x</div>
+                        <div class="metric-label">ROAS</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2,156</div>
+                        <div class="metric-label">Conversions</div>
+                    </div>
+                    <span class="status paused">Paused</span>
+                </div>
+
+                <div class="campaign-card">
+                    <div>
+                        <div class="campaign-name">Black Friday Multi-Region</div>
+                        <div class="campaign-meta">Multi-Platform • Created Nov 25, 2025</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">$45,890</div>
+                        <div class="metric-label">Spend</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">5.6x</div>
+                        <div class="metric-label">ROAS</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">5,234</div>
+                        <div class="metric-label">Conversions</div>
+                    </div>
+                    <span class="status active">Active</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

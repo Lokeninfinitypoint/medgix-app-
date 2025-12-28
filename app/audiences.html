@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiences | Marketing Tool Pro App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0e27; color: #fff; }
+        .app-layout { display: grid; grid-template-columns: 250px 1fr; height: 100vh; }
+        .sidebar { background: #151932; border-right: 1px solid rgba(255,255,255,0.1); padding: 2rem 1rem; }
+        .logo { font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3rem; }
+        .nav-item { padding: 0.75rem 1rem; color: #a0aec0; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; border-radius: 8px; margin-bottom: 0.5rem; transition: all 0.3s; }
+        .nav-item:hover, .nav-item.active { background: rgba(102, 126, 234, 0.1); color: #667eea; }
+        .main-content { padding: 2rem; overflow-y: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; }
+        .audiences-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .audience-card { background: #151932; padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .audience-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; }
+        .audience-name { font-weight: 700; font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .audience-size { color: #a0aec0; margin-bottom: 1rem; }
+        .audience-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: #667eea; }
+        .stat-label { color: #a0aec0; font-size: 0.875rem; margin-top: 0.25rem; }
+    </style>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="logo">MarketingTool.Pro</div>
+            <nav>
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="campaigns.html" class="nav-item">🎯 Campaigns</a>
+                <a href="audiences.html" class="nav-item active">👥 Audiences</a>
+                <a href="#" class="nav-item">🎨 Creative Studio</a>
+                <a href="analytics.html" class="nav-item">📈 Analytics</a>
+                <a href="#" class="nav-item">🤖 AI Chat</a>
+                <a href="#" class="nav-item">🔄 Automation</a>
+                <a href="#" class="nav-item">⚙️ Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <div>
+                    <h1>Audiences</h1>
+                    <p style="color: #a0aec0; margin-top: 0.5rem;">Create and manage custom audiences across all markets</p>
+                </div>
+                <a href="#" class="btn-primary">+ Create Audience</a>
+            </div>
+
+            <div class="audiences-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">🇺🇸</div>
+                    <div class="audience-name">USA High-Intent Buyers</div>
+                    <div class="audience-size">2.4M people • Updated 2 hours ago</div>
+                    <p style="color: #a0aec0; line-height: 1.7;">Users in USA who viewed product pages 3+ times in last 30 days, aged 25-54, interested in e-commerce.</p>
+                    <div class="audience-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">3.8x</div>
+                            <div class="stat-label">Avg ROAS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$45</div>
+                            <div class="stat-label">CPM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-icon">🇨🇦</div>
+                    <div class="audience-name">Canada B2B Decision Makers</div>
+                    <div class="audience-size">485K people • Updated 5 hours ago</div>
+                    <p style="color: #a0aec0; line-height: 1.7;">Business owners and C-level executives in Canada, company size 10-500 employees, tech industry.</p>
+                    <div class="audience-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">4.2x</div>
+                            <div class="stat-label">Avg ROAS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">CA$62</div>
+                            <div class="stat-label">CPM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-icon">🇮🇳</div>
+                    <div class="audience-name">India Tier-2 City Shoppers</div>
+                    <div class="audience-size">8.2M people • Updated 1 hour ago</div>
+                    <p style="color: #a0aec0; line-height: 1.7;">Online shoppers from tier-2 cities in India, aged 18-35, frequent mobile users with purchase history.</p>
+                    <div class="audience-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">5.1x</div>
+                            <div class="stat-label">Avg ROAS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">₹280</div>
+                            <div class="stat-label">CPM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-icon">🌍</div>
+                    <div class="audience-name">Global Lookalike Audience</div>
+                    <div class="audience-size">15.8M people • Updated 3 hours ago</div>
+                    <p style="color: #a0aec0; line-height: 1.7;">AI-generated lookalike based on top 5% customers across USA, Canada, and India markets.</p>
+                    <div class="audience-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">4.5x</div>
+                            <div class="stat-label">Avg ROAS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$38</div>
+                            <div class="stat-label">CPM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-icon">💎</div>
+                    <div class="audience-name">Premium Segment - All Markets</div>
+                    <div class="audience-size">1.9M people • Updated 30 min ago</div>
+                    <p style="color: #a0aec0; line-height: 1.7;">High-value customers with AOV $200+, multiple purchases, across all three regions.</p>
+                    <div class="audience-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">6.2x</div>
+                            <div class="stat-label">Avg ROAS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$55</div>
+                            <div class="stat-label">CPM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-icon">🎓</div>
+                    <div class="audience-name">EdTech Prospects India</div>
+                    <div class="audience-size">5.6M people • Updated 4 hours ago</div>
+                    <p style="color: #a0aec0; line-height: 1.7;">Students and professionals in India interested in online education, skill development, certifications.</p>
+                    <div class="audience-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">3.9x</div>
+                            <div class="stat-label">Avg ROAS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">₹195</div>
+                            <div class="stat-label">CPM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
