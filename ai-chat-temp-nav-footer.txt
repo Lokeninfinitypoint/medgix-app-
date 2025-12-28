@@ -1,0 +1,4 @@
+For ai-chat.html - Special handling note:
+This page has a custom sidebar layout and doesn't need traditional navigation.
+Already has a logo link in the sidebar.
+Will skip traditional nav/footer for this page as it's an app page with custom layout.

@@ -90,6 +90,64 @@
             color: var(--text-primary);
         }
 
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .btn {
             padding: 0.75rem 2rem;
             border-radius: 50px;
@@ -319,9 +377,74 @@
             color: var(--text-secondary);
         }
 
+        .footer-contact a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--primary);
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
-                display: none;
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                margin-top: 0.5rem;
             }
 
             .pricing-grid {
@@ -339,17 +462,39 @@
     </style>
 </head>
 <body>
-    <nav class="navigation">
+    <nav class="navigation" id="navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">MarketingTool.Pro</a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
+                <li class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Resources ▼
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="blog.html" class="dropdown-item">Blog</a>
+                        <a href="guides.html" class="dropdown-item">Guides</a>
+                        <a href="case-studies.html" class="dropdown-item">Case Studies</a>
+                        <a href="webinars.html" class="dropdown-item">Webinars</a>
+                    </div>
+                </li>
                 <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="about.html" class="nav-link">Company</a></li>
-                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Company ▼
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="careers.html" class="dropdown-item">Careers</a>
+                        <a href="contact.html" class="dropdown-item">Contact</a>
+                        <a href="privacy.html" class="dropdown-item">Privacy Policy</a>
+                    </div>
+                </li>
+                <li><a href="signin.html" class="nav-link">Sign In</a></li>
                 <li><a href="trial.html" class="btn btn-primary">Start Free Trial</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
@@ -439,25 +584,72 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>MarketingTool.Pro</h3>
-                    <p>AI-powered marketing automation platform with 811+ tools for complete campaign management.</p>
+                    <p>AI-powered marketing automation platform with 811+ tools for complete campaign management and optimization across USA, Canada, and India markets.</p>
                     <ul class="footer-contact">
-                        <li>📞 +1-855-574-2506</li>
-                        <li>✉️ help@marketingtool.pro</li>
-                        <li>📍 F-12 Govindam Tower, Jaipur 302012</li>
+                        <li>📞 <a href="tel:+18555742506">+1-855-574-2506</a></li>
+                        <li>✉️ <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></li>
+                        <li>📍 F-12 Govindam Tower, Jaipur 302012, India</li>
                         <li>🏢 Registration: RJ-17-0526261</li>
                     </ul>
                 </div>
-                <div></div>
-                <div></div>
-                <div></div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="trial.html">Free Trial</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="guides.html">Guides</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="webinars.html">Webinars</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Marketing Tool Pro - Infinity Solutions (India). All rights reserved.</p>
+                <p>Empowering businesses with AI-driven marketing automation | Trusted by 10,000+ customers worldwide</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Pricing toggle
         const toggleBtns = document.querySelectorAll('.toggle-btn');
         const prices = {
             USD: { starter: 99, pro: 299 },

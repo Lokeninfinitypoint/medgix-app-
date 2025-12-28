@@ -50,9 +50,16 @@
             right: 0;
             z-index: 1000;
             background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navigation.scrolled {
+            background: rgba(10, 14, 39, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -66,11 +73,17 @@
 
         .logo {
             font-size: 1.75rem;
-            font-weight: 800;
+            font-weight: 900;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-menu {
@@ -84,26 +97,120 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
+            position: relative;
             transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
         }
 
         .nav-link:hover {
             color: var(--text-primary);
         }
 
-        .btn-primary {
-            background: var(--primary-gradient);
-            color: white;
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .btn {
             padding: 0.75rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-purple);
+            border: 2px solid var(--accent-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-purple);
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         .hero {
@@ -308,7 +415,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
             gap: 3rem;
             margin-bottom: 3rem;
         }
@@ -334,6 +441,16 @@
         .footer-contact li {
             color: var(--text-secondary);
             margin-bottom: 0.75rem;
+        }
+
+        .footer-contact a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-purple);
         }
 
         .footer-section h4 {
@@ -378,7 +495,31 @@
 
         @media (max-width: 768px) {
             .nav-menu {
-                display: none;
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--dark-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                margin-top: 0.5rem;
             }
 
             .hero h1 {
@@ -392,18 +533,40 @@
     </style>
 </head>
 <body>
-    <nav class="navigation">
+    <!-- Navigation -->
+    <nav class="navigation" id="navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">MarketingTool.Pro</a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="#resources" class="nav-link">Resources</a></li>
+                <li class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Resources ▼
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="blog.html" class="dropdown-item">Blog</a>
+                        <a href="guides.html" class="dropdown-item">Guides</a>
+                        <a href="case-studies.html" class="dropdown-item">Case Studies</a>
+                        <a href="webinars.html" class="dropdown-item">Webinars</a>
+                    </div>
+                </li>
                 <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="about.html" class="nav-link">Company</a></li>
-                <li><a href="#signin" class="nav-link">Sign In</a></li>
-                <li><a href="#trial" class="btn-primary">Start Free Trial</a></li>
+                <li class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Company ▼
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="careers.html" class="dropdown-item">Careers</a>
+                        <a href="contact.html" class="dropdown-item">Contact</a>
+                        <a href="privacy.html" class="dropdown-item">Privacy Policy</a>
+                    </div>
+                </li>
+                <li><a href="signin.html" class="nav-link">Sign In</a></li>
+                <li><a href="trial.html" class="btn btn-primary">Start Free Trial</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
@@ -576,19 +739,17 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>MarketingTool.Pro</h3>
-                    <p>
-                        AI-powered marketing automation platform with 811+ tools for complete
-                        campaign management and optimization.
-                    </p>
+                    <p>AI-powered marketing automation platform with 811+ tools for complete campaign management and optimization across USA, Canada, and India markets.</p>
                     <ul class="footer-contact">
-                        <li>📞 +1-855-574-2506</li>
-                        <li>✉️ help@marketingtool.pro</li>
-                        <li>📍 F-12 Govindam Tower, Jaipur 302012</li>
+                        <li>📞 <a href="tel:+18555742506">+1-855-574-2506</a></li>
+                        <li>✉️ <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></li>
+                        <li>📍 F-12 Govindam Tower, Jaipur 302012, India</li>
                         <li>🏢 Registration: RJ-17-0526261</li>
                     </ul>
                 </div>
@@ -596,20 +757,20 @@
                 <div class="footer-section">
                     <h4>Product</h4>
                     <ul class="footer-links">
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#integrations">Integrations</a></li>
-                        <li><a href="#api">API</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="trial.html">Free Trial</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h4>Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#guides">Guides</a></li>
-                        <li><a href="#case-studies">Case Studies</a></li>
-                        <li><a href="#webinars">Webinars</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="guides.html">Guides</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="webinars.html">Webinars</a></li>
                     </ul>
                 </div>
 
@@ -617,23 +778,47 @@
                     <h4>Company</h4>
                     <ul class="footer-links">
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2025 Marketing Tool Pro - Infinity Solutions (India). All rights reserved.</p>
-                <p>Empowering businesses with AI-driven marketing automation</p>
+                <p>Empowering businesses with AI-driven marketing automation | Trusted by 10,000+ customers worldwide</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
-        new WOW().init();
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Navigation scroll effect
+        const navigation = document.getElementById('navigation');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navigation.classList.add('scrolled');
+            } else {
+                navigation.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>
