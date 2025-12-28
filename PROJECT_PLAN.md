@@ -11,7 +11,7 @@
 
 Recreate the ENTIRE Madgicx website (3,296 HTML pages) using:
 - **BrightHub blockchain-web3-saas single-page theme** (our custom style)
-- **Madgicx color scheme**: #515FBC (primary purple-blue)
+- **Madgicx color scheme**: #667eea (primary purple-blue)
 - **Content & Images**: From madgicx.com folder in repo
 - **Brand**: Marketing Tool Pro by Infinity Solutions
 
@@ -59,7 +59,7 @@ auth                → 31.220.107.19  (Authentication)
 - [x] refund-policy.html
 - [x] ai-chat.html
 
-**Status**: These pages exist but need COLOR UPDATE from #667eea to #515FBC
+**Status**: These pages exist but need COLOR UPDATE from #667eea to #667eea
 
 ---
 
@@ -77,7 +77,7 @@ auth                → 31.220.107.19  (Authentication)
 **Requirements for App Pages**:
 1. **Sidebar navigation** with all tools listed
 2. **Full functionality** (connected to Appwrite backend)
-3. **Same theme style** (BrightHub with #515FBC)
+3. **Same theme style** (BrightHub with #667eea)
 4. **Responsive design**
 5. **Dark theme** (#0a0e27 background)
 
@@ -107,7 +107,7 @@ For each page in madgicx.com folder:
 
 2. Create NEW page with:
    - BrightHub single-page theme structure
-   - Madgicx color #515FBC
+   - Madgicx color #667eea
    - Navigation header (consistent across all pages)
    - Footer (5-column, MarketingTool.Pro branding)
    - Full CSS with animations
@@ -132,8 +132,8 @@ For each page in madgicx.com folder:
 
 ### Color Palette (Madgicx Style)
 ```css
---primary: #515FBC           /* Madgicx purple-blue */
---primary-dark: #3d4a8f      /* Darker shade */
+--primary: #667eea           /* Madgicx purple-blue */
+--primary-dark: #764ba2      /* Darker shade */
 --secondary: #f5576c         /* Pink accent */
 --secondary-light: #f093fb   /* Light pink */
 --bg-dark: #0a0e27          /* Main background */
@@ -142,7 +142,7 @@ For each page in madgicx.com folder:
 --text-primary: #ffffff      /* White text */
 --text-secondary: #a0aec0    /* Gray text */
 --text-muted: #718096        /* Muted gray */
---gradient-primary: linear-gradient(135deg, #515FBC 0%, #3d4a8f 100%);
+--gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 ```
 
@@ -210,7 +210,7 @@ For each page in madgicx.com folder:
 - [x] Create reusable components
 
 **Day 3-4** (CURRENT):
-- [ ] Fix color scheme (#667eea → #515FBC) on all existing pages
+- [ ] Fix color scheme (#667eea → #667eea) on all existing pages
 - [ ] Create app pages with full sidebar (9 pages)
 - [ ] Connect app pages to Appwrite backend
 - [ ] Test authentication flow
@@ -270,7 +270,7 @@ For each page in madgicx.com folder:
     <script type="application/ld+json">{{SCHEMA_MARKUP}}</script>
 
     <style>
-        /* Full CSS with #515FBC color scheme */
+        /* Full CSS with #667eea color scheme */
     </style>
 </head>
 <body>
@@ -309,7 +309,7 @@ For each page in madgicx.com folder:
 ### What TO Do:
 1. ✅ CREATE NEW pages in root or appropriate folders
 2. ✅ USE content FROM madgicx.com files (read only)
-3. ✅ USE Madgicx color #515FBC (correct color)
+3. ✅ USE Madgicx color #667eea (correct color)
 4. ✅ CREATE each page with full CSS + animations + OG tags
 5. ✅ WORK one page at a time (or use approved automation)
 6. ✅ COMMIT frequently with clear messages
@@ -349,9 +349,9 @@ For each page in madgicx.com folder:
 ## ✅ NEXT IMMEDIATE STEPS
 
 ### Priority 1: Fix Existing Pages (TODAY)
-1. Update color scheme in all 20 root HTML files (#667eea → #515FBC)
+1. Update color scheme in all 20 root HTML files (#667eea → #667eea)
 2. Update color scheme in 4 app HTML files
-3. Commit: "Fix color scheme to match Madgicx #515FBC"
+3. Commit: "Fix color scheme to match Madgicx #667eea"
 4. Push to remote
 
 ### Priority 2: Create App Pages (TOMORROW)
@@ -374,7 +374,7 @@ For each page in madgicx.com folder:
 
 Project is complete when:
 - [ ] All 3,296 madgicx.com pages recreated with BrightHub theme
-- [ ] All pages use #515FBC color scheme
+- [ ] All pages use #667eea color scheme
 - [ ] All pages have full CSS, animations, OG tags
 - [ ] All app pages functional with Appwrite integration
 - [ ] Website deployed to VPS 31.220.107.19

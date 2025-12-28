@@ -337,7 +337,7 @@ Each tool page will have:
 - Benefits section
 - Pricing/CTA section
 - Full BrightHub theme styling
-- #515FBC color scheme
+- #667eea color scheme
 - Navigation + Footer
 - Meta tags + OG images
 - Schema markup
