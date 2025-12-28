@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat | Marketing Tool Pro - Dashboard - Marketing Tool Pro</title>
+    <meta name="description" content="Chat with our AI marketing assistant to optimize campaigns, get insights, and automate your marketing workflows.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --dark-bg: #0a0e27;
+            --dark-secondary: #151932;
+            --dark-tertiary: #1e2139;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --accent-purple: #667eea;
+            --accent-pink: #f5576c;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .app-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--dark-secondary);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            padding: 0 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-item {
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--text-primary);
+        }
+
+        .nav-item.active {
+            background: rgba(102, 126, 234, 0.15);
+            color: var(--accent-purple);
+            border-left: 3px solid var(--accent-purple);
+        }
+
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-details {
+            flex: 1;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-email {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--dark-bg);
+        }
+
+        .top-bar {
+            height: 70px;
+            background: var(--dark-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .top-bar h1 {
+            font-size: 1.5rem;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-icon:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        /* Chat Container */
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 1rem;
+            max-width: 800px;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .message.ai .message-avatar {
+            background: var(--primary-gradient);
+        }
+
+        .message.user .message-avatar {
+            background: var(--secondary-gradient);
+        }
+
+        .message-content {
+            background: var(--dark-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .message.user .message-content {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-author {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .message-text {
+            color: var(--text-secondary);
+        }
+
+        .suggestion-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .chip {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chip:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Chat Input */
+        .chat-input-container {
+            padding: 2rem;
+            background: var(--dark-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-input-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .chat-input {
+            width: 100%;
+            background: var(--dark-tertiary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 1rem 4rem 1rem 1.5rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .send-button {
+            position: absolute;
+            right: 0.5rem;
+            bottom: 0.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .send-button:hover {
+            transform: scale(1.1);
+        }
+
+        .send-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Welcome Screen */
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .welcome-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-screen h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-screen p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .suggestion-card {
+            background: var(--dark-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .suggestion-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .suggestion-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .suggestion-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .suggestions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                padding: 0 1rem;
+            }
+
+            .chat-messages {
+                padding: 1rem;
+            }
+
+            .chat-input-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">MarketingTool.Pro</div>
+                <p style="font-size: 0.875rem; color: var(--text-secondary);">Dashboard - Marketing Tool Pro</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <div class="nav-item active">
+                        <span>💬</span>
+                        <span>AI Chat</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>📊</span>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>📈</span>
+                        <span>Campaigns</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>🎯</span>
+                        <span>Audiences</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Tools</div>
+                    <div class="nav-item">
+                        <span>🤖</span>
+                        <span>AI Ad Generator</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>📸</span>
+                        <span>Creative Studio</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>🔄</span>
+                        <span>Automation</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>📊</span>
+                        <span>Analytics</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Settings</div>
+                    <div class="nav-item">
+                        <span>⚙️</span>
+                        <span>Account Settings</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>🔔</span>
+                        <span>Notifications</span>
+                    </div>
+                    <div class="nav-item">
+                        <span>💳</span>
+                        <span>Billing</span>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">U</div>
+                    <div class="user-details">
+                        <div class="user-name">User Account</div>
+                        <div class="user-email">user@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1>Dashboard - Marketing Tool Pro</h1>
+                <div class="top-bar-actions">
+                    <div class="btn-icon" title="New Chat">
+                        <span>➕</span>
+                    </div>
+                    <div class="btn-icon" title="History">
+                        <span>📜</span>
+                    </div>
+                    <div class="btn-icon" title="Settings">
+                        <span>⚙️</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Welcome Screen -->
+                    <div class="welcome-screen">
+                        <div class="welcome-icon">🤖</div>
+                        <h2>Welcome to <span style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI Chat</span></h2>
+                        <p>
+                            I'm your AI marketing assistant, powered by advanced machine learning.
+                            I can help you optimize campaigns, analyze data, create ads, and automate your workflows.
+                        </p>
+
+                        <div class="suggestions-grid">
+                            <div class="suggestion-card" onclick="sendSuggestion('Analyze my campaign performance for the last 30 days')">
+                                <div class="suggestion-card-icon">📊</div>
+                                <h3>Analyze Performance</h3>
+                                <p>Get insights on your campaigns</p>
+                            </div>
+
+                            <div class="suggestion-card" onclick="sendSuggestion('Generate 5 ad variations for my product')">
+                                <div class="suggestion-card-icon">🎨</div>
+                                <h3>Create Ads</h3>
+                                <p>Generate creative content</p>
+                            </div>
+
+                            <div class="suggestion-card" onclick="sendSuggestion('Optimize my budget allocation across campaigns')">
+                                <div class="suggestion-card-icon">💰</div>
+                                <h3>Optimize Budget</h3>
+                                <p>Maximize your ROI</p>
+                            </div>
+
+                            <div class="suggestion-card" onclick="sendSuggestion('Create an audience for targeting fashion enthusiasts')">
+                                <div class="suggestion-card-icon">🎯</div>
+                                <h3>Build Audiences</h3>
+                                <p>Find your ideal customers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea
+                            class="chat-input"
+                            id="chatInput"
+                            placeholder="Ask me anything about your marketing campaigns..."
+                            rows="1"
+                            onkeypress="handleKeyPress(event)"
+                        ></textarea>
+                        <button class="send-button" onclick="sendMessage()">
+                            <span style="font-size: 1.5rem;">➤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Clear welcome screen
+            chatMessages.innerHTML = '';
+
+            // Add user message
+            addMessage('user', message);
+
+            // Clear input
+            chatInput.value = '';
+
+            // Simulate AI response
+            setTimeout(() => {
+                addAIResponse(message);
+            }, 1000);
+        }
+
+        function addMessage(type, text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+
+            const time = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${type === 'user' ? 'U' : '🤖'}</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="message-author">${type === 'user' ? 'You' : 'AI Assistant'}</span>
+                        <span class="message-time">${time}</span>
+                    </div>
+                    <div class="message-text">${text}</div>
+                </div>
+            `;
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addAIResponse(userMessage) {
+            const responses = {
+                'campaign': "I've analyzed your campaign performance. Your overall ROI is up 23% compared to last month. I recommend increasing budget on your top-performing ad sets and testing new creative variations on underperforming campaigns.",
+                'budget': "Based on current performance data, I suggest reallocating 30% of your budget from Campaign A to Campaign B, which has a 40% higher conversion rate. This could increase your overall ROI by approximately 15%.",
+                'audience': "I've created a custom audience profile for fashion enthusiasts aged 25-45, interested in sustainable fashion and luxury brands. This audience segment shows a 2.3x higher engagement rate compared to your current targeting.",
+                'ad': "I've generated 5 ad variations for your product:\n\n1. Headline: 'Transform Your Style' - Focus on lifestyle benefits\n2. Headline: 'Limited Time Offer' - Urgency-based approach\n3. Headline: 'Join 10,000+ Happy Customers' - Social proof\n4. Headline: 'Free Shipping Today' - Value proposition\n5. Headline: 'Discover Your Perfect Match' - Personalization angle\n\nWould you like me to create the full ad copy and creative assets for any of these?"
+            };
+
+            let response = "I can help you with that! Here are some suggestions:\n\n";
+
+            if (userMessage.toLowerCase().includes('campaign') || userMessage.toLowerCase().includes('performance')) {
+                response = responses.campaign;
+            } else if (userMessage.toLowerCase().includes('budget') || userMessage.toLowerCase().includes('optimize')) {
+                response = responses.budget;
+            } else if (userMessage.toLowerCase().includes('audience') || userMessage.toLowerCase().includes('targeting')) {
+                response = responses.audience;
+            } else if (userMessage.toLowerCase().includes('ad') || userMessage.toLowerCase().includes('creative')) {
+                response = responses.ad;
+            } else {
+                response += "• Analyze your campaign performance\n• Optimize budget allocation\n• Create custom audiences\n• Generate ad creative\n• Automate workflows\n• Provide actionable insights\n\nWhat would you like to focus on?";
+            }
+
+            addMessage('ai', response);
+        }
+
+        function sendSuggestion(text) {
+            chatInput.value = text;
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        // Auto-resize textarea
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    </script>
+</body>
+</html>
