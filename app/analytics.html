@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | Marketing Tool Pro App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0e27; color: #fff; }
+        .app-layout { display: grid; grid-template-columns: 250px 1fr; height: 100vh; }
+        .sidebar { background: #151932; border-right: 1px solid rgba(255,255,255,0.1); padding: 2rem 1rem; }
+        .logo { font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3rem; }
+        .nav-item { padding: 0.75rem 1rem; color: #a0aec0; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; border-radius: 8px; margin-bottom: 0.5rem; transition: all 0.3s; }
+        .nav-item:hover, .nav-item.active { background: rgba(102, 126, 234, 0.1); color: #667eea; }
+        .main-content { padding: 2rem; overflow-y: auto; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 2rem; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+        .metric-card { background: #151932; padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); }
+        .metric-label { color: #a0aec0; font-size: 0.875rem; margin-bottom: 0.5rem; }
+        .metric-value { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .metric-change { font-size: 0.875rem; font-weight: 600; display: flex; align-items: center; gap: 0.25rem; }
+        .metric-change.positive { color: #4caf50; }
+        .metric-change.negative { color: #f44336; }
+        .chart-card { background: #151932; padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem; }
+        .chart-card h3 { margin-bottom: 2rem; }
+        .chart-placeholder { height: 300px; background: #0a0e27; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #a0aec0; }
+        .regions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .region-card { background: #151932; padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .region-flag { font-size: 3rem; margin-bottom: 1rem; }
+        .region-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+        .region-stats { display: grid; gap: 1rem; margin-top: 1.5rem; }
+        .region-stat { display: flex; justify-content: space-between; }
+        .region-stat-label { color: #a0aec0; }
+        .region-stat-value { font-weight: 700; }
+        @media (max-width: 1200px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); } .regions-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="logo">MarketingTool.Pro</div>
+            <nav>
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="campaigns.html" class="nav-item">🎯 Campaigns</a>
+                <a href="audiences.html" class="nav-item">👥 Audiences</a>
+                <a href="#" class="nav-item">🎨 Creative Studio</a>
+                <a href="analytics.html" class="nav-item active">📈 Analytics</a>
+                <a href="#" class="nav-item">🤖 AI Chat</a>
+                <a href="#" class="nav-item">🔄 Automation</a>
+                <a href="#" class="nav-item">⚙️ Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1>Analytics Dashboard</h1>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Ad Spend</div>
+                    <div class="metric-value">$125,480</div>
+                    <div class="metric-change positive">↑ 24% vs last month</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-label">ROAS</div>
+                    <div class="metric-value">4.2x</div>
+                    <div class="metric-change positive">↑ 18% vs last month</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-label">Conversions</div>
+                    <div class="metric-value">8,956</div>
+                    <div class="metric-change positive">↑ 32% vs last month</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-label">CPA</div>
+                    <div class="metric-value">$14.02</div>
+                    <div class="metric-change negative">↓ 15% vs last month</div>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Performance Trend (Last 30 Days)</h3>
+                <div class="chart-placeholder">📊 Chart: Revenue vs Spend (Line Graph)</div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Platform Performance Comparison</h3>
+                <div class="chart-placeholder">📊 Chart: Facebook vs Google vs TikTok (Bar Chart)</div>
+            </div>
+
+            <h2 style="margin: 3rem 0 2rem;">Regional Performance</h2>
+            <div class="regions-grid">
+                <div class="region-card">
+                    <div class="region-flag">🇺🇸</div>
+                    <div class="region-name">United States</div>
+                    <div class="region-stats">
+                        <div class="region-stat">
+                            <span class="region-stat-label">Ad Spend</span>
+                            <span class="region-stat-value">$68,240</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">ROAS</span>
+                            <span class="region-stat-value">3.8x</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">Conversions</span>
+                            <span class="region-stat-value">4,892</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">CPM</span>
+                            <span class="region-stat-value">$42.50</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-flag">🇨🇦</div>
+                    <div class="region-name">Canada</div>
+                    <div class="region-stats">
+                        <div class="region-stat">
+                            <span class="region-stat-label">Ad Spend</span>
+                            <span class="region-stat-value">CA$38,950</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">ROAS</span>
+                            <span class="region-stat-value">4.1x</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">Conversions</span>
+                            <span class="region-stat-value">2,345</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">CPM</span>
+                            <span class="region-stat-value">CA$55.20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-flag">🇮🇳</div>
+                    <div class="region-name">India</div>
+                    <div class="region-stats">
+                        <div class="region-stat">
+                            <span class="region-stat-label">Ad Spend</span>
+                            <span class="region-stat-value">₹12,45,000</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">ROAS</span>
+                            <span class="region-stat-value">5.2x</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">Conversions</span>
+                            <span class="region-stat-value">6,719</span>
+                        </div>
+                        <div class="region-stat">
+                            <span class="region-stat-label">CPM</span>
+                            <span class="region-stat-value">₹245</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
