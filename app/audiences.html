@@ -9,7 +9,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #0a0e27; color: #fff; }
         .app-layout { display: grid; grid-template-columns: 250px 1fr; height: 100vh; }
-        .sidebar { background: #151932; border-right: 1px solid rgba(255,255,255,0.1); padding: 2rem 1rem; }
+        .sidebar { background: #151932; border-right: 1px solid rgba(255,255,255,0.1); padding: 2rem 1rem; display: flex; flex-direction: column; }
         .logo { font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3rem; }
         .nav-item { padding: 0.75rem 1rem; color: #a0aec0; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; border-radius: 8px; margin-bottom: 0.5rem; transition: all 0.3s; }
         .nav-item:hover, .nav-item.active { background: rgba(102, 126, 234, 0.1); color: #667eea; }
@@ -31,7 +31,7 @@
 <body>
     <div class="app-layout">
         <aside class="sidebar">
-            <div class="logo">MarketingTool.Pro</div>
+            <a href="../index.html" class="logo" style="text-decoration: none; display: block;">MarketingTool.Pro</a>
             <nav>
                 <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
                 <a href="campaigns.html" class="nav-item">🎯 Campaigns</a>
@@ -42,6 +42,18 @@
                 <a href="#" class="nav-item">🔄 Automation</a>
                 <a href="#" class="nav-item">⚙️ Settings</a>
             </nav>
+            <div style="margin-top: auto; padding: 1.5rem 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #a0aec0;">
+                <div style="margin-bottom: 0.5rem;">
+                    <a href="../index.html" style="color: #a0aec0; text-decoration: none;">← Back to Website</a>
+                </div>
+                <div style="margin-bottom: 0.25rem;">
+                    <a href="tel:+18555742506" style="color: #a0aec0; text-decoration: none;">📞 +1-855-574-2506</a>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <a href="mailto:help@marketingtool.pro" style="color: #a0aec0; text-decoration: none;">✉️ help@marketingtool.pro</a>
+                </div>
+                <div style="opacity: 0.7;">© 2025 Marketing Tool Pro</div>
+            </div>
         </aside>
 
         <main class="main-content">
