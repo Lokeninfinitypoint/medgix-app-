@@ -12,7 +12,7 @@
 
 **Recreate ALL 3,296 Madgicx pages manually (NO SCRIPT)**
 - Use BrightHub single-page theme style for EVERY page
-- Use Madgicx color scheme: **#515FBC** (primary purple-blue)
+- Use BrightHub color scheme: **#667eea** (primary purple) - OUR theme colors
 - Extract content & images from madgicx.com folder
 - Apply MarketingTool.Pro branding
 - Create each page individually with full CSS, animations, OG images
@@ -50,7 +50,7 @@
 4. app/analytics.html - Analytics dashboard
 
 **Updates Applied:**
-- ✅ Color scheme: #515FBC (Madgicx color)
+- ✅ Color scheme: #667eea (BrightHub theme color)
 - ✅ Tool count: 3,296+ (updated from 811+)
 - ✅ BrightHub theme: Single-page style
 - ✅ Dark theme: #0a0e27 background
@@ -103,10 +103,10 @@
 
 ## 🎨 DESIGN SYSTEM (Apply to ALL Pages)
 
-### Color Scheme (Madgicx):
+### Color Scheme (BrightHub Theme):
 ```css
---primary: #515FBC           /* Madgicx purple-blue (CORRECT) */
---primary-dark: #3d4a8f      /* Darker shade */
+--primary: #667eea           /* BrightHub purple (OUR COLOR) */
+--primary-dark: #764ba2      /* BrightHub darker purple */
 --secondary: #f5576c         /* Pink accent */
 --bg-dark: #0a0e27          /* Main background */
 --bg-secondary: #151932      /* Secondary background */
