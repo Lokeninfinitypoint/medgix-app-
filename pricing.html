@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - Start Free Trial | Marketing Tool Pro</title>
+    <meta name="description" content="Flexible pricing for every marketer. Start with 7-day free trial. Plans from $49/day to $499 lifetime. Access 3,296+ AI marketing tools.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pricing Plans - Start Free Trial | Marketing Tool Pro">
+    <meta property="og:description" content="Flexible pricing for every marketer. Start 7-day free trial. $49/day, $99/month, or $499 lifetime access.">
+    <meta property="og:image" content="https://marketingtool.pro/images/og/pricing.jpg">
+    <meta property="og:url" content="https://marketingtool.pro/pricing.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricing Plans - Marketing Tool Pro">
+    <meta name="twitter:description" content="Start 7-day free trial. Plans from $49/day to $499 lifetime.">
+    <meta name="twitter:image" content="https://marketingtool.pro/images/og/pricing.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Pricing Plans",
+        "description": "Flexible pricing for Marketing Tool Pro. Start with 7-day free trial.",
+        "url": "https://marketingtool.pro/pricing.html"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Marketing Tool Pro",
+        "description": "Complete marketing automation platform with 3,296+ AI-powered tools",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "7-Day Free Trial",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Full access to all features for 7 days"
+            },
+            {
+                "@type": "Offer",
+                "name": "Daily Pass",
+                "price": "49",
+                "priceCurrency": "USD",
+                "description": "24-hour access to all 3,296+ tools"
+            },
+            {
+                "@type": "Offer",
+                "name": "Monthly Plan",
+                "price": "99",
+                "priceCurrency": "USD",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "description": "Monthly subscription with 1 connected app"
+            },
+            {
+                "@type": "Offer",
+                "name": "Lifetime Access",
+                "price": "499",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "description": "One-time payment for lifetime access"
+            }
+        ]
+    }
+    </script>
+
+<style>
+/* ===== BrightHub Theme Variables ===== */
+:root {
+    --primary: #7A5AF8;
+    --primary-dark: #181D27;
+    --secondary: #535862;
+    --accent-cyan: #01E5E5;
+    --accent-teal: #008787;
+    --bg-dark: #000000;
+    --bg-secondary: #181D27;
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --gradient-primary: linear-gradient(135deg, #7A5AF8 0%, #181D27 100%);
+    --gradient-accent: linear-gradient(234deg, #01E5E5 0%, #008787 100%);
+    --border-radius: 9999px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* ===== Navigation (reused from index.html) ===== */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(24, 29, 39, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(122, 90, 248, 0.1);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.logo-text {
+    color: var(--text-primary);
+}
+
+.logo-accent {
+    color: var(--primary);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    font-size: 0.938rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--primary);
+}
+
+.nav-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-secondary {
+    padding: 0.625rem 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(122, 90, 248, 0.3);
+    color: var(--text-primary);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.938rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: rgba(122, 90, 248, 0.1);
+    border-color: var(--primary);
+}
+
+.btn-primary {
+    padding: 0.625rem 1.5rem;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.938rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(122, 90, 248, 0.3);
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(122, 90, 248, 0.4);
+}
+
+/* ===== Page Header ===== */
+.page-header {
+    padding: 180px 2rem 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(122, 90, 248, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.page-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.page-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: var(--gradient-accent);
+    border-radius: var(--border-radius);
+    font-size: 0.813rem;
+    font-weight: 600;
+    color: var(--bg-dark);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.page-header h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ===== Pricing Section ===== */
+.pricing-section {
+    padding: 120px 2rem;
+}
+
+.pricing-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.pricing-card {
+    background: var(--bg-secondary);
+    border: 2px solid rgba(122, 90, 248, 0.1);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(122, 90, 248, 0.2);
+}
+
+.pricing-card.featured {
+    background: var(--gradient-primary);
+    border: 2px solid var(--primary);
+    transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -12px;
+    right: 2rem;
+    background: var(--gradient-accent);
+    color: var(--bg-dark);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--border-radius);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.pricing-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pricing-price {
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-price-small {
+    font-size: 2rem;
+    color: var(--text-secondary);
+}
+
+.pricing-period {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    display: block;
+}
+
+.pricing-description {
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    font-size: 0.938rem;
+}
+
+.pricing-features {
+    list-style: none;
+    margin: 2.5rem 0;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(122, 90, 248, 0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    color: var(--accent-cyan);
+    font-weight: 900;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.pricing-cta {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    display: block;
+}
+
+.pricing-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(122, 90, 248, 0.4);
+}
+
+.pricing-card.featured .pricing-cta {
+    background: #ffffff;
+    color: var(--primary);
+}
+
+/* ===== FAQ Section ===== */
+.faq-section {
+    padding: 80px 2rem 120px;
+    background: var(--bg-secondary);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.faq-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.faq-item {
+    background: rgba(122, 90, 248, 0.05);
+    border: 1px solid rgba(122, 90, 248, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    background: rgba(122, 90, 248, 0.08);
+    border-color: rgba(122, 90, 248, 0.3);
+}
+
+.faq-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.faq-answer {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ===== Footer (reused from index.html) ===== */
+.footer {
+    padding: 80px 2rem 40px;
+    background: var(--bg-secondary);
+    border-top: 1px solid rgba(122, 90, 248, 0.1);
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.footer-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.footer-contact {
+    color: var(--text-secondary);
+    font-size: 0.938rem;
+    line-height: 2;
+}
+
+.footer-contact a {
+    color: var(--primary);
+}
+
+.footer-contact a:hover {
+    color: var(--accent-cyan);
+}
+
+.footer-column h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.938rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(122, 90, 248, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(122, 90, 248, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--gradient-primary);
+    transform: translateY(-3px);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+    .page-header h1 {
+        font-size: 3rem;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .page-header {
+        padding: 140px 1.5rem 60px;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-text">Marketing</span>
+                <span class="logo-accent">Tool</span>
+                <span class="logo-text">.Pro</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/tools.html">Tools</a></li>
+                <li><a href="/services.html">Services</a></li>
+                <li><a href="/resources.html">Resources</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/pricing.html" class="active">Pricing</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="/signin.html" class="btn-secondary">Sign In</a>
+                <a href="/trial.html" class="btn-primary">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="page-header-content">
+            <span class="page-badge">FLEXIBLE PRICING</span>
+            <h1>Choose Your <span class="gradient-text">Perfect Plan</span></h1>
+            <p class="page-header-description">
+                Start with a 7-day free trial. No credit card required. Scale as you grow with flexible pricing options.
+            </p>
+        </div>
+    </header>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="pricing-container">
+            <div class="pricing-grid">
+                <!-- Free Trial -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Free Trial</h3>
+                        <div class="pricing-price">$<span class="pricing-price-small">0</span></div>
+                        <span class="pricing-period">7 days</span>
+                        <p class="pricing-description">Test drive all features risk-free</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Full access to all 3,296+ tools</li>
+                        <li>AI marketing agents</li>
+                        <li>Campaign automation</li>
+                        <li>Analytics dashboard</li>
+                        <li>No credit card required</li>
+                        <li>Cancel anytime</li>
+                    </ul>
+                    <a href="/trial.html" class="pricing-cta">Start Free Trial</a>
+                </div>
+
+                <!-- Daily Pass -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Daily Pass</h3>
+                        <div class="pricing-price">$49</div>
+                        <span class="pricing-period">per day</span>
+                        <p class="pricing-description">Perfect for short-term campaigns</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>24-hour full access</li>
+                        <li>All 3,296+ marketing tools</li>
+                        <li>AI agents included</li>
+                        <li>Full automation features</li>
+                        <li>Priority support</li>
+                        <li>Export all data</li>
+                    </ul>
+                    <a href="/trial.html" class="pricing-cta">Get Daily Pass</a>
+                </div>
+
+                <!-- Monthly Plan - Featured -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">MOST POPULAR</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Monthly Plan</h3>
+                        <div class="pricing-price">$99</div>
+                        <span class="pricing-period">per month / 1 app</span>
+                        <p class="pricing-description">Best for growing businesses</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>All tools & features unlocked</li>
+                        <li>1 connected ad account</li>
+                        <li>Advanced automation</li>
+                        <li>AI agents & workflows</li>
+                        <li>Priority support 24/7</li>
+                        <li>Advanced analytics</li>
+                        <li>Custom integrations</li>
+                        <li>Team collaboration</li>
+                    </ul>
+                    <a href="/trial.html" class="pricing-cta">Start Free Trial</a>
+                </div>
+
+                <!-- Lifetime Access -->
+                <div class="pricing-card">
+                    <div class="pricing-badge">BEST VALUE</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Lifetime Access</h3>
+                        <div class="pricing-price">$499</div>
+                        <span class="pricing-period">one-time payment</span>
+                        <p class="pricing-description">Own it forever</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Lifetime access forever</li>
+                        <li>Unlimited ad accounts</li>
+                        <li>All future updates included</li>
+                        <li>Premium support</li>
+                        <li>All AI agents</li>
+                        <li>Custom workflows</li>
+                        <li>White-label option</li>
+                        <li>API access</li>
+                        <li>Priority feature requests</li>
+                        <li>Dedicated account manager</li>
+                    </ul>
+                    <a href="/trial.html" class="pricing-cta">Get Lifetime Access</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What's included in the free trial?</h3>
+                <p class="faq-answer">
+                    The 7-day free trial gives you complete access to all 3,296+ tools, AI agents, automation features, and analytics. No credit card required, and you can cancel anytime.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I upgrade or downgrade my plan?</h3>
+                <p class="faq-answer">
+                    Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any payments.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What payment methods do you accept?</h3>
+                <p class="faq-answer">
+                    We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and wire transfers for enterprise plans.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is there a refund policy?</h3>
+                <p class="faq-answer">
+                    Yes, we offer a 30-day money-back guarantee on all plans. If you're not satisfied, contact us for a full refund.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How many ad accounts can I connect?</h3>
+                <p class="faq-answer">
+                    The Monthly Plan includes 1 connected ad account. The Lifetime Access plan includes unlimited ad accounts. You can add additional accounts to any plan.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Do you offer enterprise plans?</h3>
+                <p class="faq-answer">
+                    Yes! We offer custom enterprise plans with dedicated support, white-label options, and custom integrations. Contact us at help@marketingtool.pro for details.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">Marketing</span>
+                        <span class="logo-accent">Tool</span>
+                        <span class="logo-text">.Pro</span>
+                    </div>
+                    <p class="footer-description">
+                        Complete marketing automation platform with 3,296+ AI-powered tools. Scale your campaigns with autonomous agents and advanced analytics.
+                    </p>
+                    <div class="footer-contact">
+                        <p>📞 <a href="tel:+18555742506">+1-855-574-2506</a></p>
+                        <p>📧 <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></p>
+                        <p>📍 F-12 Govindam Tower, Jaipur 302012, India</p>
+                    </div>
+                </div>
+
+                <!-- Product Column -->
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="/tools.html">All Tools</a></li>
+                        <li><a href="/ai-agents.html">AI Agents</a></li>
+                        <li><a href="/automation.html">Automation</a></li>
+                        <li><a href="/analytics.html">Analytics</a></li>
+                        <li><a href="/pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/guides.html">Guides</a></li>
+                        <li><a href="/case-studies.html">Case Studies</a></li>
+                        <li><a href="/webinars.html">Webinars</a></li>
+                        <li><a href="/docs.html">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Column -->
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/careers.html">Careers</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/partners.html">Partners</a></li>
+                        <li><a href="/press.html">Press</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/cookies.html">Cookie Policy</a></li>
+                        <li><a href="/refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 Marketing Tool Pro by Infinity Solutions (RJ-17-0526261). All rights reserved.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Track pricing clicks
+        document.querySelectorAll('.pricing-cta').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const plan = e.target.closest('.pricing-card').querySelector('.pricing-title').textContent;
+                console.log('Pricing plan clicked:', plan);
+                // Add analytics tracking here
+            });
+        });
+    </script>
+</body>
+</html>
